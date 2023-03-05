@@ -52,7 +52,7 @@ echo $OUTPUT->heading($modulenameplural);
 $videos = get_all_instances_in_course('vimeoactivity', $course);
 
 if (empty($videos)) {
-    notice(get_string('no$vimeoactivityinstances', 'mod_vimeoactivity'), 
+    notice(get_string('no$vimeoactivityinstances', 'mod_vimeoactivity'),
     new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 

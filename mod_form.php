@@ -153,17 +153,17 @@ class mod_vimeoactivity_mod_form extends moodleform_mod {
      * @param stdClass $data the form data to be modified.
      */
     /**  public function data_postprocessing($data) {
-    *     parent::data_postprocessing($data);
-    *     if (!empty($data->completionunlocked)) {
-    *         // Turn off completion settings if the checkboxes aren't ticked.
-    *         $autocompletion = !empty($data->completion) && $data->completion == COMPLETION_TRACKING_AUTOMATIC;
-    *
-    *         if (!$autocompletion || empty($data->completionprogress)) {
-    *             $data->completionprogress = null;
-    *         }
-    *     }
-    * }
-    */
+     *     parent::data_postprocessing($data);
+     *     if (!empty($data->completionunlocked)) {
+     *         // Turn off completion settings if the checkboxes aren't ticked.
+     *         $autocompletion = !empty($data->completion) && $data->completion == COMPLETION_TRACKING_AUTOMATIC;
+     *
+     *         if (!$autocompletion || empty($data->completionprogress)) {
+     *             $data->completionprogress = null;
+     *         }
+     *     }
+     * }
+     */
     /**
      * This function is responsible for validating
      * the supplied Vimeo video data and returning

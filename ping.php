@@ -56,7 +56,7 @@ if ($video = vimeoactivity_fetch_video($videoid)) {
 
     // Deciding if the loaded video must be
     // marked as a completed task, or not.
-    if ($video->completionenable == true and
+    if ($video->completionenable == true &&
         $video->completionprogress <= $value) {
         $module = get_coursemodule_from_instance('vimeoactivity', $videoid, 0, false, MUST_EXIST);
         $course = $DB->get_record('course', ['id' => $module->course], '*', MUST_EXIST);

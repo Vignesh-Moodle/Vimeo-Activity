@@ -19,7 +19,6 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
  * @license http://www.gnu.org/copyleft/gpl.html
  */
 defined('MOODLE_INTERNAL') || die();

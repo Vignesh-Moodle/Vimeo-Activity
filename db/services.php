@@ -1,5 +1,5 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
+// This file is part of Moodle - https://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -12,22 +12,23 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * This file contains the required routines for this activity module.
+ * Vimeo services definition
  *
- * @package mod_vimeoactivity
- * @author Vignesh
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @package     mod_vimeoactivity
  */
 
-/**
- * This function is responsible for executing the
- * required routines when removing this plug-in.
- *
- * @return boolean
- */
-function xmldb_vimeoactivity_uninstall() {
-    return(true);
-}
+defined('MOODLE_INTERNAL') || die();
+
+$functions = [
+    'mod_vimeoactivity_trackprogress' => [
+        'classname' => 'mod_vimeoactivity\external\progress',
+        'classpath' => 'mod/vimeoactivity/classes/external/progress.php',
+        'methodname' => 'track',
+        'description' => 'Saves the tracked video progress',
+        'type' => 'write',
+        'ajax' => true
+    ]
+];

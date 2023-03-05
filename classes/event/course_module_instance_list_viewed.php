@@ -14,20 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * This file contains the required routines for this activity module.
- *
- * @package mod_vimeoactivity
- * @author Vignesh
- * @license http://www.gnu.org/copyleft/gpl.html
- */
+namespace mod_vimeoactivity\event;
 
-/**
- * This function is responsible for executing the
- * required routines when removing this plug-in.
- *
- * @return boolean
- */
-function xmldb_vimeoactivity_uninstall() {
-    return(true);
+class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {
+
 }

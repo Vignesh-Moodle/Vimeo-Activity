@@ -22,7 +22,70 @@
 
  * @license http://www.gnu.org/copyleft/gpl.html
  */
-defined('MOODLE_INTERNAL') || exit(0);
+require(__DIR__.'/../../config.php');
 
-// Nothing to be done here!
-exit(0);
+require_once(__DIR__.'/lib.php');
+
+$id = required_param('id', PARAM_INT);
+require_course_login($course, true);
+$course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
+require_course_login($course);
+
+$coursecontext = context_course::instance($course->id);
+
+$event = \mod_vimeoactivity\event\course_module_instance_list_viewed::create(array(
+    'context' => $coursecontext
+));
+$event->add_record_snapshot('course', $course);
+$event->trigger();
+
+$PAGE->set_url('/mod/vimeoactivity/index.php', array('id' => $id));
+$PAGE->set_title(format_string($course->fullname));
+$PAGE->set_heading(format_string($course->fullname));
+$PAGE->set_context($coursecontext);
+
+echo $OUTPUT->header();
+
+$modulenameplural = get_string('modulenameplural', 'mod_vimeoactivity');
+echo $OUTPUT->heading($modulenameplural);
+
+$videos = get_all_instances_in_course('vimeoactivity', $course);
+
+if (empty($videos)) {
+    notice(get_string('no$vimeoactivityinstances', 'mod_vimeoactivity'), new moodle_url('/course/view.php', array('id' => $course->id)));
+}
+
+$table = new html_table();
+$table->attributes['class'] = 'generaltable mod_index';
+
+if ($course->format == 'weeks') {
+    $table->head  = array(get_string('week'), get_string('name'));
+    $table->align = array('center', 'left');
+} else if ($course->format == 'topics') {
+    $table->head  = array(get_string('topic'), get_string('name'));
+    $table->align = array('center', 'left', 'left', 'left');
+} else if ($course->format == 'tiles') {
+    $table->head  = array('Tile', get_string('name'));
+    $table->align = array('center', 'left', 'left', 'left');
+} else {
+    $table->head  = array(get_string('name'));
+    $table->align = array('left', 'left', 'left');
+}
+
+foreach ($videos as $video) {
+    $link = (!$video->visible) ? html_writer::link(
+            new moodle_url('/mod/vimeoactivity/view.php', array('id' => $video->coursemodule)),
+            format_string($video->name, true),
+            array('class' => 'dimmed')) : html_writer::link(
+            new moodle_url('/mod/vimeoactivity/view.php', array('id' => $video->coursemodule)),
+            format_string($video->name, true));
+
+    if ($course->format == 'weeks' or $course->format == 'topics' or $course->format == 'tiles') {
+        $table->data[] = array($video->section, $link);
+    } else {
+        $table->data[] = array($link);
+    }
+}
+
+echo html_writer::table($table);
+echo $OUTPUT->footer();

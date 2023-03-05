@@ -22,7 +22,6 @@
 
  * @license http://www.gnu.org/copyleft/gpl.html
  */
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * [vimeoactivity_fetch_video]
@@ -298,7 +297,9 @@ function vimeoactivity_render_video(stdclass $video, $styles = true, $scripts = 
     }
 
     if ($video->color <> '') {
-        $output .= '<div id="mod-vimeoactivity-'.$video->id.'-block" class="mod-vimeoactivity-block" style="background-color:#'.$video->color.'">';
+        $output .= '<div id="mod-vimeoactivity-'.
+                    $video->id.'-block" class="mod-vimeoactivity-block" style="background-color:#'.
+                    $video->color.'">';
         $output .= '&nbsp;';
         $output .= '</div>'."\n";
     } else {
@@ -337,8 +338,7 @@ function vimeoactivity_render_video(stdclass $video, $styles = true, $scripts = 
     } else {
         $output .= ' loop:false,'."\n";
     }
-
-    $output .= ' title:false,'."\n";
+    $output .= ' title:true,'."\n";
     $output .= ' byline:false};'."\n";
     $output .= 'var vimeo_'.$video->id.'_player = new Vimeo.Player("mod-vimeoactivity-'.$video->id.'", options);'."\n";
     $output .= 'var vimeo_'.$video->id.'_progress = 0;'."\n";
@@ -357,7 +357,6 @@ function vimeoactivity_render_video(stdclass $video, $styles = true, $scripts = 
     $output .= '}'."\n";
     $output .= '});'."\n";
     $output .= '</script>'."\n";
-
     // Returning the compiled Vimeo
     // video as this method's result.
     return($output);
@@ -555,7 +554,7 @@ function vimeoactivity_fetch_progress($userid, $videoid) {
     // (greater than zero) and, if not, there is no need
     // to even touch the database and returning a null
     // value as this function result.
-    if ($userid < 1 or $videoid < 1) {
+    if ($userid < 1 || $videoid < 1) {
         return($result);
     }
 
@@ -617,7 +616,7 @@ function vimeoactivity_save_progress($userid, $videoid, $value) {
     // (greater than zero) and, if not, there is no need
     // to even touch the database and returning a false
     // boolean value as this function result.
-    if ($userid < 1 or $videoid < 1) {
+    if ($userid < 1 || $videoid < 1) {
         return(false);
     }
 
@@ -685,7 +684,7 @@ function vimeoactivity_delete_progress($userid, $videoid) {
     // (greater than zero) and, if not, there is no need
     // to even touch the database and returning a false
     // boolean value as this function result.
-    if ($userid < 1 or $videoid < 1) {
+    if ($userid < 1 || $videoid < 1) {
         return(false);
     }
 

@@ -1,4 +1,5 @@
 <?php
+use core_availability\output\availability_info;
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -30,23 +31,45 @@ require_once(__DIR__.'/../../config.php');
 require_once(__DIR__.'/lib.php');
 require_once(__DIR__.'/locallib.php');
 
+
+
+
 // Capturing the supplied identifier
 // to load this Vimeo video instance.
-$id = required_param('id', PARAM_INT);
+$cmid = required_param('id', PARAM_INT);
 
 // Trying to load from the database
 // the requested Vimeo video using
 // the supplied course module id.
-$module = get_coursemodule_from_id('vimeoactivity', $id, 0, false, MUST_EXIST);
+$module = get_coursemodule_from_id('vimeoactivity', $cmid, 0, false, MUST_EXIST);
 $context = context_module::instance($module->id);
 $course = $DB->get_record('course', ['id' => $module->course], '*', MUST_EXIST);
 $video = vimeoactivity_fetch_video($module->instance);
+
+list ($course, $cm) = get_course_and_cm_from_cmid($cmid, 'vimeoactivity');
+$video = $DB->get_record('vimeoactivity', ['id' => $cm->instance], '*', MUST_EXIST);
+
+require_login($course, true, $cm);
+
+$modulecontext = context_module::instance($cm->id);
+
+$event = \mod_vimeoactivity\event\course_module_viewed::create(array(
+    'objectid' => $video->id,
+    'context' => $modulecontext
+));
+$event->add_record_snapshot('course_modules', $cm);
+$event->add_record_snapshot('course', $course);
+$event->add_record_snapshot('vimeoactivity', $video);
+$event->trigger();
+
+$completion = new completion_info($course);
+$completion->set_module_viewed($cm);
 
 // Because we were unable to load the
 // requested Vimeo video, displaying
 // an error message about this.
 if (empty($video)) {
-    error('The requested Vimeo video was not found.');
+    echo('The requested Vimeo video was not found.');
 }
 
 // This user needs to be authenticated
@@ -57,22 +80,40 @@ require_login($course, true, $module);
 // before viewing this Vimeo video.
 require_capability('mod/vimeoactivity:view', $context);
 
-// Marking this Vimeo video as viewed so
-// any other task that depends on it, works.
-$completion = new completion_info($course);
-$completion->set_module_viewed($module);
-
 // Deciding if we need to render the Moodle
 // interface (with header, footer, menus,
 // blocks, etc) or the full screen one.
 if ($video->popupopen == false) {
 
-    $PAGE->set_url('/mod/vimeoactivity/view.php', ['id' => $video->id]);
+    $PAGE->set_url('/mod/vimeoactivity/view.php', ['id' => $cm->id]);
     $PAGE->set_title(format_string($video->name));
     $PAGE->set_heading(format_string($course->fullname));
-
+    
     echo($OUTPUT->header());
     echo(vimeoactivity_render_video($video, true, true, false));
+    echo('<style>
+    body.has-secondarynavigation #page, body.has-secondarynavigation #page.drawers {
+        margin-top: 0;
+    }
+    nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand.shadow {
+        display: none;
+    }
+    .secondary-navigation.d-print-none.moove {
+        display: none;
+    }
+    footer#page-footer {
+        display: none;
+    }
+    #page.drawers .main-inner {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    .mod-vimeoactivity-video iframe {
+        height: 960px !important;
+    }
+    
+    </style>');
     echo($OUTPUT->footer());
 
 } else {

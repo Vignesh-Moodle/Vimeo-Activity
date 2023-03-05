@@ -26,8 +26,8 @@ defined('MOODLE_INTERNAL') || die();
 
 // Defining this plug-in metadata.
 $plugin->component = 'mod_vimeoactivity';
-$plugin->release = '1.0.6';
-$plugin->version = 2021092806;
+$plugin->release = '1.2.14';
+$plugin->version = 2023030117;
 $plugin->maturity = MATURITY_BETA;
 $plugin->requires = 2016052311;
 $plugin->dependencies = [];

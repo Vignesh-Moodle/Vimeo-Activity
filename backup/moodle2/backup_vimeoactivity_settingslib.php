@@ -15,19 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the required routines for this activity module.
+ * vimeoactivity backup settings
  *
- * @package mod_vimeoactivity
- * @author Vignesh
- * @license http://www.gnu.org/copyleft/gpl.html
+ * Workshop has no particular settings but the inherited from the generic
+ * {@link backup_activity_task}.
+ *
+ * @package     mod_vimeoactivity
+ * @category    backup
  */
 
-/**
- * This function is responsible for executing the
- * required routines when removing this plug-in.
- *
- * @return boolean
- */
-function xmldb_vimeoactivity_uninstall() {
-    return(true);
-}
+defined('MOODLE_INTERNAL') || die();

@@ -19,7 +19,6 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
  * @license http://www.gnu.org/copyleft/gpl.html
  */
 defined('MOODLE_INTERNAL') || die();
@@ -33,11 +32,9 @@ require_once(__DIR__.'/locallib.php');
 /**
  * This class is responsible for defining and validating this plug-in add and edit forms.
  *
-
  * @license http://www.gnu.org/copyleft/gpl.html
  */
-class mod_vimeoactivity_mod_form extends moodleform_mod
-{
+class mod_vimeoactivity_mod_form extends moodleform_mod {
     /**
      * This method is responsible for
      * registering this form inputs.
@@ -121,10 +118,10 @@ class mod_vimeoactivity_mod_form extends moodleform_mod
                                                                               80 => '80%',
                                                                               90 => '90%',
                                                                               100 => '100%']),
-            $this->_form->createElement('checkbox', 'completionenable', ' ', get_string('label_enable', 'mod_vimeoactivity')),
+        $this->_form->createElement('checkbox', 'completionenable', ' ', get_string('label_enable', 'mod_vimeoactivity'))
         ];
         $this->_form->setType('completionprogress', PARAM_INT);
-        $this->_form->addGroup($group, 'completionprogress', get_string('label_completion', 'mod_vimeoactivity'), [''], false);
+        $this->_form->addGroup($group, 'completionprogress', get_string('label_completion', 'mod_vimeoactivity'), null, false);
         $this->_form->addHelpButton('completionprogress', 'label_completion', 'mod_vimeoactivity');
         $this->_form->disabledIf('completionprogress', 'completionenable', 'notchecked');
 
@@ -142,11 +139,29 @@ class mod_vimeoactivity_mod_form extends moodleform_mod
     public function completion_rule_enabled($data) {
         $data['completionenable'] = intval($data['completionenable']);
         $data['completionprogress'] = intval($data['completionprogress']);
-        return($data['completionenable'] == 1 and
-                $data['completionprogress'] >= 0 and
+        return($data['completionenable'] == 1 &&
+                $data['completionprogress'] >= 0 &&
                 $data['completionprogress'] <= 100);
     }
+    /**
+     * Allows module to modify the data returned by form get_data().
+     * This method is also called in the bulk activity completion form.
+     *
+     * Only available on moodleform_mod.
+     *
+     * @param stdClass $data the form data to be modified.
+     */
+    // public function data_postprocessing($data) {
+    //     parent::data_postprocessing($data);
+    //     if (!empty($data->completionunlocked)) {
+    //         // Turn off completion settings if the checkboxes aren't ticked.
+    //         $autocompletion = !empty($data->completion) && $data->completion == COMPLETION_TRACKING_AUTOMATIC;
 
+    //         if (!$autocompletion || empty($data->completionprogress)) {
+    //             $data->completionprogress = null;
+    //         }
+    //     }
+    // }
     /**
      * This function is responsible for validating
      * the supplied Vimeo video data and returning

@@ -24,7 +24,14 @@
  */
 
 namespace mod_vimeoactivity\analytics\indicator;
-
+/**
+ * Activity base class.
+ *
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class social_breadth extends activity_base {
 
     /**
@@ -37,11 +44,19 @@ class social_breadth extends activity_base {
     public static function get_name() : \lang_string {
         return new \lang_string('indicator:socialbreadth', 'mod_vimeoactivity');
     }
-
+    /**
+     * Define indicator typr
+     * 
+     * @return string
+     */
     public function get_indicator_type() {
         return self::INDICATOR_SOCIAL;
     }
-
+    /**
+     * Returns the potential level of social breadth.
+     * 
+     * @return int
+     */
     public function get_social_breadth_level(\cm_info $cm) {
         return self::SOCIAL_LEVEL_1;
     }

@@ -25,6 +25,15 @@
 
 namespace mod_vimeoactivity\analytics\indicator;
 
+/**
+ * Activity base class.
+ *
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 class cognitive_depth extends activity_base {
 
     /**
@@ -38,9 +47,20 @@ class cognitive_depth extends activity_base {
         return new \lang_string('indicator:cognitivedepth', 'mod_vimeoactivity');
     }
 
+    /**
+     * Defines indicator type.
+     * 
+     * @return string
+     */
     public function get_indicator_type() {
         return self::INDICATOR_COGNITIVE;
     }
+
+    /**
+     * Returns the potential level of social breadth.
+     * 
+     * @return int
+     */
 
     public function get_cognitive_depth_level(\cm_info $cm) {
         return self::COGNITIVE_LEVEL_1;

@@ -51,7 +51,7 @@ class progress extends external_api {
      * Complete method
      *
      * @param int $cmid
-     *
+     * @param int $watchprog
      * @return array
      *
      * @throws \coding_exception
@@ -75,8 +75,7 @@ class progress extends external_api {
         }
 
         $progutil = new watchprog();
-        $progutil->addpoint($cm->instance, $watchprog);
-
+        $progutil->addprogress($cm->instance, $watchprog);
         $completion = new completion_info($course);
         $completion->update_state($cm, COMPLETION_COMPLETE);
 
@@ -96,10 +95,5 @@ class progress extends external_api {
                 'status' => new external_value(PARAM_TEXT, 'Operation status')
             )
         );
-    }
-
-    /**
-     */
-    public function __construct() {
     }
 }

@@ -24,6 +24,14 @@
  */
 namespace mod_vimeoactivity\analytics\indicator;
 
+/**
+ * Activity base class.
+ *
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 abstract class activity_base extends \core_analytics\local\indicator\community_of_inquiry_activity {
 
     /**

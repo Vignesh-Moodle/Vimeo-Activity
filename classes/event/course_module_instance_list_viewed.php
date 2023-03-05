@@ -20,7 +20,12 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 namespace mod_vimeoactivity\event;
-
+/** 
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {
 
 }

@@ -305,7 +305,7 @@ function vimeoactivity_print_recent_activity($course, $viewfullnames, $timestart
  *
  * This callback function is supposed to populate the passed array with
  * custom activity records. These records are then rendered into HTML via
- * {@link vimeoactivity_print_recent_mod_activity()}.
+ * {vimeoactivity_print_recent_mod_activity()}.
  *
  * Returns void, it adds items into $activities and increases $index.
  *
@@ -323,12 +323,12 @@ function vimeoactivity_get_recent_mod_activity(&$activities, &$index, $timestart
 
 /**
  * Prints single activity item prepared by
- * {@link vimeoactivity_get_recent_mod_activity()}
+ * {vimeoactivity_get_recent_mod_activity()}
  *
  * @param stdclass $activity activity record with added 'cmid' property
  * @param integer $courseid the id of the course we produce the report for
  * @param boolean $detail print detailed report
- * @param array $modnames as returned by {@link get_module_types_names()}
+ * @param array $modnames as returned by {get_module_types_names()}
  * @param boolean $viewfullnames disautoplay users' full names
  */
 function vimeoactivity_print_recent_mod_activity($activity, $courseid, $detail, $modnames, $viewfullnames) {

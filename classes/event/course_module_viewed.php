@@ -34,7 +34,16 @@ class course_module_viewed extends \core\event\course_module_viewed {
         $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
         $this->data['objecttable'] = 'vimeoactivity';
     }
-
+    /**
+     * This is used when restoring course logs where it is required that we
+     * map the objectid to it's new value in the new course.
+     * Does nothing in the base class except display a debugging message warning
+     * the user that the event does not contain the required functionality to
+     * map this information. For events that do not store an objectid this won't
+     * be called, so no debugging message will be displayed.
+     * 
+     * @return array<string>
+     */
     public static function get_objectid_mapping() {
         return array('db' => 'vimeoactivity', 'restore' => 'vimeoactivity');
     }

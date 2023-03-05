@@ -49,7 +49,7 @@ class cognitive_depth extends activity_base {
 
     /**
      * Defines indicator type.
-     * 
+     *
      * @return string
      */
     public function get_indicator_type() {
@@ -58,7 +58,7 @@ class cognitive_depth extends activity_base {
 
     /**
      * Returns the potential level of social breadth.
-     * 
+     *
      * @return int
      */
 

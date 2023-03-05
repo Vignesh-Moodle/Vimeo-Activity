@@ -18,9 +18,9 @@
  * This file contains the required routines for this activity module.
  *
  * @package mod_vimeoactivity
- * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require(__DIR__.'/../../config.php');
 
@@ -52,23 +52,24 @@ echo $OUTPUT->heading($modulenameplural);
 $videos = get_all_instances_in_course('vimeoactivity', $course);
 
 if (empty($videos)) {
-    notice(get_string('no$vimeoactivityinstances', 'mod_vimeoactivity'), new moodle_url('/course/view.php', array('id' => $course->id)));
+    notice(get_string('no$vimeoactivityinstances', 'mod_vimeoactivity'), 
+    new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 
 $table = new html_table();
 $table->attributes['class'] = 'generaltable mod_index';
 
 if ($course->format == 'weeks') {
-    $table->head  = array(get_string('week'), get_string('name'));
+    $table->head = array(get_string('week'), get_string('name'));
     $table->align = array('center', 'left');
 } else if ($course->format == 'topics') {
-    $table->head  = array(get_string('topic'), get_string('name'));
+    $table->head = array(get_string('topic'), get_string('name'));
     $table->align = array('center', 'left', 'left', 'left');
 } else if ($course->format == 'tiles') {
-    $table->head  = array('Tile', get_string('name'));
+    $table->head = array('Tile', get_string('name'));
     $table->align = array('center', 'left', 'left', 'left');
 } else {
-    $table->head  = array(get_string('name'));
+    $table->head = array(get_string('name'));
     $table->align = array('left', 'left', 'left');
 }
 
@@ -80,7 +81,7 @@ foreach ($videos as $video) {
             new moodle_url('/mod/vimeoactivity/view.php', array('id' => $video->coursemodule)),
             format_string($video->name, true));
 
-    if ($course->format == 'weeks' or $course->format == 'topics' or $course->format == 'tiles') {
+    if ($course->format == 'weeks' || $course->format == 'topics' || $course->format == 'tiles') {
         $table->data[] = array($video->section, $link);
     } else {
         $table->data[] = array($link);

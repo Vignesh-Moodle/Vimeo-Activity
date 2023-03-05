@@ -19,8 +19,8 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
@@ -211,28 +211,6 @@ function vimeoactivity_delete_instance($id) {
     // boolean value as this function result.
     return(false);
 }
-
-// /**
-//  * This standard function will check all instances of this
-//  * module and make sure there are up-to-date events created
-//  * for each of them. If courseid equals to zero, then every
-//  * Vimeo event in the site is checked, else only Vimeo events
-//  * belonging to the course specified are checked. This is only
-//  * required if the module is generating calendar events.
-//  *
-//  * @param integer $courseid
-//  * @return boolean
-//  */
-// function vimeoactivity_refresh_events($courseid) {
-//     // Because we don't have any related
-//     // events returning a true boolean
-//     // value as this function result.
-//     if ($courseid > 0) {
-//         return(true);
-//     } else {
-//         return(false);
-//     }
-// }
 
 /**
  * Obtains the automatic completion state

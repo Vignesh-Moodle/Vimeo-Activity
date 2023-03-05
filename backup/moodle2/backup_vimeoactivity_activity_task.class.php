@@ -17,7 +17,10 @@
 /**
  * The task that provides all the steps to perform a complete backup is defined here.
  *
- * @package     mod_vimeoactivity
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @category    backup
  */
 

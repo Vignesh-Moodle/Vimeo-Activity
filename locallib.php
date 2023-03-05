@@ -19,8 +19,8 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
@@ -202,7 +202,7 @@ function vimeoactivity_update_video(stdclass $video) {
         // Executing the required command
         // to persist the supplied object
         // within the database.
-        if ($result = $DB->update_record_raw('vimeoactivity', $values)) {
+        if ($DB->update_record_raw('vimeoactivity', $values)) {
             // Because we were able to execute this operation
             // completely and successfully, returning a true
             // boolean value as this function result.

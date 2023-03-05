@@ -1,5 +1,4 @@
 <?php
-use core_availability\output\availability_info;
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -20,8 +19,8 @@ use core_availability\output\availability_info;
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 // Loading all libraries, classes
@@ -88,7 +87,7 @@ if ($video->popupopen == false) {
     $PAGE->set_url('/mod/vimeoactivity/view.php', ['id' => $cm->id]);
     $PAGE->set_title(format_string($video->name));
     $PAGE->set_heading(format_string($course->fullname));
-    
+
     echo($OUTPUT->header());
     echo(vimeoactivity_render_video($video, true, true, false));
     echo('<style>
@@ -112,7 +111,7 @@ if ($video->popupopen == false) {
     .mod-vimeoactivity-video iframe {
         height: 960px !important;
     }
-    
+
     </style>');
     echo($OUTPUT->footer());
 

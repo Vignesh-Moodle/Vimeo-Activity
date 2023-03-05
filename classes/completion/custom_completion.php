@@ -26,7 +26,10 @@ use mod_vimeoactivity\util\watchprog;
  *
  * Class for defining mod_vimeoactivity's custom completion rules and fetching the completion statuses
  * of the custom completion rules for a given instance and a user.
- *
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class custom_completion extends activity_custom_completion {
 

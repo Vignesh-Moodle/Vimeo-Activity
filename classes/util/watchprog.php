@@ -18,8 +18,10 @@ namespace mod_vimeoactivity\util;
 
 /**
  * watchprogress class.
- *
- * @package     mod_vimeoactivity
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class watchprog {
         /**
@@ -152,37 +154,6 @@ class watchprog {
         // successfully, returning a false boolean value as
         // this function result.
         return(false);
-    }
-
-    /**
-     * [vimeoactivity_delete_progress]
-     *
-     * @param integer $userid
-     * @param integer $videoid
-     * @return boolean
-     */
-    public function vimeoactivity_delete_progress($userid, $videoid) {
-        // Importing all the required global
-        // objects into this function scope.
-        global $DB;
-
-        // Normalizing the supplied arguments and making
-        // sure they are within the required parameters.
-        $userid = max(0, (integer)$userid);
-        $videoid = max(0, (integer)$videoid);
-
-        // Verifying if the supplied identifiers are valid
-        // (greater than zero) and, if not, there is no need
-        // to even touch the database and returning a false
-        // boolean value as this function result.
-        if ($userid < 1 || $videoid < 1) {
-            return(false);
-        }
-
-        // Removing the requested object from the
-        // database and returning a boolean value
-        // as this function result.
-        return((boolean)$DB->delete_records('vimeoactivity_progress', ['user' => $userid, 'video' => $videoid]));
     }
 
 }

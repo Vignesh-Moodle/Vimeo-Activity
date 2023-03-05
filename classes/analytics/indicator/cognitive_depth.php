@@ -17,7 +17,10 @@
 /**
  * Cognitive depth indicator - vimeoactivity.
  *
- * @package     mod_vimeoactivity
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 namespace mod_vimeoactivity\analytics\indicator;

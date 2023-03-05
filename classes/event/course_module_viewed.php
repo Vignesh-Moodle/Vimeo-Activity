@@ -19,7 +19,10 @@ namespace mod_vimeoactivity\event;
 /**
  * The course_module_viewed event class.
  *
- * @package     mod_vimeoactivity
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @category    event
  */
 class course_module_viewed extends \core\event\course_module_viewed {

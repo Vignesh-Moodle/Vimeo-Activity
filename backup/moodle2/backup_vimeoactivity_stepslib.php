@@ -17,11 +17,12 @@
 /**
  * Backup steps for mod_vimeoactivity are defined here.
  *
- * @package     mod_vimeoactivity
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @category    backup
  */
-
-defined('MOODLE_INTERNAL') || die();
 
 // More information about the backup process: {@link https://docs.moodle.org/dev/Backup_API}.
 // More information about the restore process: {@link https://docs.moodle.org/dev/Restore_API}.
@@ -56,7 +57,6 @@ class backup_vimeoactivity_activity_structure_step extends backup_activity_struc
             'completionprogress',
             'timecreated',
             'timemodified']);
-
 
         // Define the source tables for the elements.
         $vimeoactivity->set_source_table('vimeoactivity', ['id' => backup::VAR_ACTIVITYID]);

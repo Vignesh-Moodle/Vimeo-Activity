@@ -19,7 +19,8 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 
@@ -151,17 +152,18 @@ class mod_vimeoactivity_mod_form extends moodleform_mod {
      *
      * @param stdClass $data the form data to be modified.
      */
-    // public function data_postprocessing($data) {
-    //     parent::data_postprocessing($data);
-    //     if (!empty($data->completionunlocked)) {
-    //         // Turn off completion settings if the checkboxes aren't ticked.
-    //         $autocompletion = !empty($data->completion) && $data->completion == COMPLETION_TRACKING_AUTOMATIC;
-
-    //         if (!$autocompletion || empty($data->completionprogress)) {
-    //             $data->completionprogress = null;
-    //         }
-    //     }
-    // }
+    /**  public function data_postprocessing($data) {
+    *     parent::data_postprocessing($data);
+    *     if (!empty($data->completionunlocked)) {
+    *         // Turn off completion settings if the checkboxes aren't ticked.
+    *         $autocompletion = !empty($data->completion) && $data->completion == COMPLETION_TRACKING_AUTOMATIC;
+    *
+    *         if (!$autocompletion || empty($data->completionprogress)) {
+    *             $data->completionprogress = null;
+    *         }
+    *     }
+    * }
+    */
     /**
      * This function is responsible for validating
      * the supplied Vimeo video data and returning

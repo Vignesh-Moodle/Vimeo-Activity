@@ -46,7 +46,7 @@ class social_breadth extends activity_base {
     }
     /**
      * Define indicator typr
-     * 
+     *
      * @return string
      */
     public function get_indicator_type() {
@@ -54,7 +54,7 @@ class social_breadth extends activity_base {
     }
     /**
      * Returns the potential level of social breadth.
-     * 
+     *
      * @return int
      */
     public function get_social_breadth_level(\cm_info $cm) {

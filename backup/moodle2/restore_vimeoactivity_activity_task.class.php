@@ -29,8 +29,6 @@ defined('MOODLE_INTERNAL') || die();
 // More information about the backup process: {@link https://docs.moodle.org/dev/Backup_API}.
 // More information about the restore process: {@link https://docs.moodle.org/dev/Restore_API}.
 
-require_once($CFG->dirroot.'/mod/vimeoactivity/backup/moodle2/restore_vimeoactivity_stepslib.php');
-
 /**
  * Restore task for mod_vimeoactivity.
  */

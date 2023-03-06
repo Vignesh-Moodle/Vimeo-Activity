@@ -26,10 +26,10 @@ namespace mod_vimeoactivity\util;
 class watchprog {
     /**
      * Adding progress in database
-     * 
+     *
      * @param int $videoid
      * @param int $watchprog
-     * 
+     *
      * @return int
      */
     public function addprogress($videoid, $watchprog) {

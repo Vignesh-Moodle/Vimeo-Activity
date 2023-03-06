@@ -15,14 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Record event of viewing instance list.
+ *
  * @package mod_vimeoactivity
  * @author Mohammad Farouk
  * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 namespace mod_vimeoactivity\event;
-/**
+
+/** Class for inserting instance view record
  * @package mod_vimeoactivity
  * @author Mohammad Farouk
  * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>

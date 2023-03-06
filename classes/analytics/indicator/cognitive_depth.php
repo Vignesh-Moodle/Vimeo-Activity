@@ -57,6 +57,7 @@ class cognitive_depth extends activity_base {
     /**
      * Returns the potential level of social breadth.
      *
+     * @param \cm_info $cm
      * @return int
      */
     public function get_cognitive_depth_level(\cm_info $cm) {

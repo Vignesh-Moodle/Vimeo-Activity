@@ -38,12 +38,12 @@ class watchprog {
         return $id;
     }
     /**
-    * [vimeoactivity_fetch_progress]
-    *
-    * @param integer $userid
-    * @param integer $videoid
-    * @return object|null
-    */
+     * [vimeoactivity_fetch_progress]
+     *
+     * @param integer $userid
+     * @param integer $videoid
+     * @return object|null
+     */
     public function vimeoactivity_fetch_progress($userid, $videoid) {
         // Importing all the required global
         // objects into this function scope.

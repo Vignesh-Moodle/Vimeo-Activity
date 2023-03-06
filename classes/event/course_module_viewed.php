@@ -41,7 +41,7 @@ class course_module_viewed extends \core\event\course_module_viewed {
      * the user that the event does not contain the required functionality to
      * map this information. For events that do not store an objectid this won't
      * be called, so no debugging message will be displayed.
-     * 
+     *
      * @return array<string>
      */
     public static function get_objectid_mapping() {

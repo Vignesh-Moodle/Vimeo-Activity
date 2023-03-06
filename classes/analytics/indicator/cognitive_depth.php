@@ -22,7 +22,6 @@
  * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 namespace mod_vimeoactivity\analytics\indicator;
 
 /**
@@ -33,7 +32,6 @@ namespace mod_vimeoactivity\analytics\indicator;
  * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class cognitive_depth extends activity_base {
 
     /**
@@ -61,7 +59,6 @@ class cognitive_depth extends activity_base {
      *
      * @return int
      */
-
     public function get_cognitive_depth_level(\cm_info $cm) {
         return self::COGNITIVE_LEVEL_1;
     }

@@ -24,6 +24,14 @@ namespace mod_vimeoactivity\util;
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class watchprog {
+    /**
+     * Adding progress in database
+     * 
+     * @param int $videoid
+     * @param int $watchprog
+     * 
+     * @return int
+     */
     public function addprogress($videoid, $watchprog) {
         global $DB, $USER;
 

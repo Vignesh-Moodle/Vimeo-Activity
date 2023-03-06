@@ -90,29 +90,6 @@ if ($video->popupopen == false) {
 
     echo($OUTPUT->header());
     echo(vimeoactivity_render_video($video, true, true, false));
-    echo('<style>
-    body.has-secondarynavigation #page, body.has-secondarynavigation #page.drawers {
-        margin-top: 0;
-    }
-    nav.navbar.fixed-top.navbar-light.bg-white.navbar-expand.shadow {
-        display: none;
-    }
-    .secondary-navigation.d-print-none.moove {
-        display: none;
-    }
-    footer#page-footer {
-        display: none;
-    }
-    #page.drawers .main-inner {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0;
-    }
-    .mod-vimeoactivity-video iframe {
-        height: 960px !important;
-    }
-
-    </style>');
     echo($OUTPUT->footer());
 
 } else {

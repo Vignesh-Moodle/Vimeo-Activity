@@ -19,22 +19,16 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * This function is responsible for executing the
- * required routines when upgrading this plug-in.
+ * required routines when removing this plug-in.
  *
- * @param integer $oldversion
  * @return boolean
  */
-function xmldb_vimeoactivity_upgrade($oldversion) {
-    if ($oldversion) {
-        return(true);
-    } else {
-        return(true);
-    }
+function xmldb_vimeoactivity_uninstall() {
+    return(true);
 }

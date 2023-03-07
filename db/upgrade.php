@@ -19,29 +19,21 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') || die();
 
-// Defining this plug-in required permissions.
-$capabilities = array(
-    'mod/vimeoactivity:view' => array(
-        'captype' => 'read',
-        'contextlevel' => CONTEXT_MODULE,
-        'archetypes' => array(
-            'guest' => CAP_ALLOW,
-            'user' => CAP_ALLOW,
-        )
-    ),
-    'mod/vimeoactivity:addinstance' => array(
-        'riskbitmask' => RISK_XSS,
-        'captype' => 'write',
-        'contextlevel' => CONTEXT_COURSE,
-        'archetypes' => array(
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        ),
-        'clonepermissionsfrom' => 'moodle/course:manageactivities'
-    ),
-);
+/**
+ * This function is responsible for executing the
+ * required routines when upgrading this plug-in.
+ *
+ * @param integer $oldversion
+ * @return boolean
+ */
+function xmldb_vimeoactivity_upgrade($oldversion) {
+    if ($oldversion) {
+        return(true);
+    } else {
+        return(true);
+    }
+}

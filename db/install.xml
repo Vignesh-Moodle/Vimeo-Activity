@@ -7,9 +7,9 @@
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="20" UNSIGNED="true" NOTNULL="true" SEQUENCE="true" COMMENT=""/>
                 <FIELD NAME="course" TYPE="int" LENGTH="20" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
-                <FIELD NAME="name" TYPE="char" LENGTH="240" NOTNULL="true" SEQUENCE="false" DEFAULT="NULL" COMMENT=""/>
-                <FIELD NAME="video" TYPE="char" LENGTH="240" NOTNULL="true" SEQUENCE="false" DEFAULT="NULL" COMMENT=""/>
-                <FIELD NAME="color" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" DEFAULT="NULL" COMMENT=""/>
+                <FIELD NAME="name" TYPE="char" LENGTH="240" NOTNULL="true" SEQUENCE="false" COMMENT=""/>
+                <FIELD NAME="video" TYPE="char" LENGTH="240" NOTNULL="true" SEQUENCE="false" COMMENT=""/>
+                <FIELD NAME="color" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT=""/>
                 <FIELD NAME="intro" TYPE="text" LENGTH="24000" NOTNULL="true" SEQUENCE="false" COMMENT=""/>
                 <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" DEFAULT="0" COMMENT=""/>
                 <FIELD NAME="autoplay" TYPE="int" LENGTH="1" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
@@ -17,7 +17,7 @@
                 <FIELD NAME="popupopen" TYPE="int" LENGTH="1" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
                 <FIELD NAME="popupwidth" TYPE="int" LENGTH="20" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
                 <FIELD NAME="popupheight" TYPE="int" LENGTH="20" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
-                <FIELD NAME="completionenable" TYPE="int" LENGTH="1" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
+                <FIELD NAME="completionenable" TYPE="int" LENGTH="1" UNSIGNED="true" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT=""/>
                 <FIELD NAME="completionprogress" TYPE="int" LENGTH="4" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
                 <FIELD NAME="visible" TYPE="int" LENGTH="1" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>
                 <FIELD NAME="timecreated" TYPE="int" LENGTH="20" UNSIGNED="true" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT=""/>

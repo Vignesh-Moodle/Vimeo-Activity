@@ -19,10 +19,9 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * This function returns what
@@ -40,6 +39,8 @@ function vimeoactivity_supports($feature) {
         case FEATURE_COMPLETION_HAS_RULES:
             return true;
         case FEATURE_COMPLETION_TRACKS_VIEWS:
+            return true;
+        case FEATURE_BACKUP_MOODLE2:
             return true;
         default:
             return false;
@@ -71,8 +72,10 @@ function vimeoactivity_get_coursemodule_info(stdclass $coursemodule) {
         if ($video->popupopen) {
             $video->popupwidth = ($video->popupwidth > 0) ? $video->popupwidth : 640;
             $video->popupheight = ($video->popupheight > 0) ? $video->popupheight : 360;
-            $info->onclick = "window.open('".$CFG->wwwroot."/mod/vimeoactivity/view.php?id=".$coursemodule->id."&popup=1','_blank',".
-                             "'top=' + (window.top.outerHeight / 2 + window.top.screenY - ( ".$video->popupheight." / 2)) + ',".
+            $info->onclick = "window.open('".$CFG->wwwroot."/mod/vimeoactivity/view.php?id=".
+                             $coursemodule->id."&popup=1','_blank',".
+                             "'top=' + (window.top.outerHeight / 2 + window.top.screenY - ( ".
+                             $video->popupheight." / 2)) + ',".
                              "left=' + (window.top.outerWidth / 2 + window.top.screenX - ( ".$video->popupwidth." / 2)) + ',".
                              "width=".$video->popupwidth.",height=".$video->popupheight.",toolbar=no,location=no,menubar=no,".
                              "copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false;";
@@ -92,7 +95,7 @@ function vimeoactivity_get_coursemodule_info(stdclass $coursemodule) {
     // Because we were unable to execute
     // this operation successfully, returning
     // a null value as this function result.
-    return(null);
+    return new cached_cm_info();
 }
 
 /**
@@ -193,7 +196,7 @@ function vimeoactivity_delete_instance($id) {
         // Trying to delete the requested object
         // from the database and, if successful,
         // returning a true boolean as result.
-        if (vimeoactivity_delete_video($video)) {
+        if (vimeoactivity_delete_video($video->id)) {
             // Rebuilding this course cache.
             rebuild_course_cache($video->course, true);
 
@@ -207,28 +210,6 @@ function vimeoactivity_delete_instance($id) {
     // operation successfully, returning a false
     // boolean value as this function result.
     return(false);
-}
-
-/**
- * This standard function will check all instances of this
- * module and make sure there are up-to-date events created
- * for each of them. If courseid equals to zero, then every
- * Vimeo event in the site is checked, else only Vimeo events
- * belonging to the course specified are checked. This is only
- * required if the module is generating calendar events.
- *
- * @param integer $courseid
- * @return boolean
- */
-function vimeoactivity_refresh_events($courseid) {
-    // Because we don't have any related
-    // events returning a true boolean
-    // value as this function result.
-    if ($courseid > 0) {
-        return(true);
-    } else {
-        return(true);
-    }
 }
 
 /**
@@ -324,7 +305,7 @@ function vimeoactivity_print_recent_activity($course, $viewfullnames, $timestart
  *
  * This callback function is supposed to populate the passed array with
  * custom activity records. These records are then rendered into HTML via
- * {@link vimeoactivity_print_recent_mod_activity()}.
+ * {vimeoactivity_print_recent_mod_activity()}.
  *
  * Returns void, it adds items into $activities and increases $index.
  *
@@ -342,12 +323,12 @@ function vimeoactivity_get_recent_mod_activity(&$activities, &$index, $timestart
 
 /**
  * Prints single activity item prepared by
- * {@link vimeoactivity_get_recent_mod_activity()}
+ * {vimeoactivity_get_recent_mod_activity()}
  *
  * @param stdclass $activity activity record with added 'cmid' property
  * @param integer $courseid the id of the course we produce the report for
  * @param boolean $detail print detailed report
- * @param array $modnames as returned by {@link get_module_types_names()}
+ * @param array $modnames as returned by {get_module_types_names()}
  * @param boolean $viewfullnames disautoplay users' full names
  */
 function vimeoactivity_print_recent_mod_activity($activity, $courseid, $detail, $modnames, $viewfullnames) {

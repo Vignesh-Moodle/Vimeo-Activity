@@ -15,14 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file contains the required routines for this activity module.
+ * Record event of viewing instance list.
  *
  * @package mod_vimeoactivity
- * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') || exit(0);
+namespace mod_vimeoactivity\event;
 
-// Nothing to be done here!
-exit(0);
+/** Class for inserting instance view record
+ * @package mod_vimeoactivity
+ * @author Mohammad Farouk
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {
+
+}

@@ -19,16 +19,29 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
 
-// Defining this plug-in metadata.
-$plugin->component = 'mod_vimeoactivity';
-$plugin->release = '1.0.6';
-$plugin->version = 2021092806;
-$plugin->maturity = MATURITY_BETA;
-$plugin->requires = 2016052311;
-$plugin->dependencies = [];
-$plugin->cron = 0;
+// Defining this plug-in required permissions.
+$capabilities = array(
+    'mod/vimeoactivity:view' => array(
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_MODULE,
+        'archetypes' => array(
+            'guest' => CAP_ALLOW,
+            'user' => CAP_ALLOW,
+        )
+    ),
+    'mod/vimeoactivity:addinstance' => array(
+        'riskbitmask' => RISK_XSS,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        ),
+        'clonepermissionsfrom' => 'moodle/course:manageactivities'
+    ),
+);

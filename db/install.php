@@ -19,17 +19,26 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
-
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * This function is responsible for executing the
- * required routines when removing this plug-in.
+ * required routines when installing this plug-in.
  *
  * @return boolean
  */
-function xmldb_vimeoactivity_uninstall() {
+function xmldb_vimeoactivity_install() {
+    return(true);
+}
+
+/**
+ * This function is responsible for executing the
+ * required routines when recovering this plug-in.
+ *
+ * @return boolean
+ */
+function xmldb_vimeoactivity_install_recovery() {
     return(true);
 }

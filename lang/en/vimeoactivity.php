@@ -19,8 +19,8 @@
  *
  * @package mod_vimeoactivity
  * @author Vignesh
- * @copyright BlackBean Technologies Ltda <https://www.blackbean.com.br>
- * @license http://www.gnu.org/copyleft/gpl.html
+ * @copyright   2023 Mohammad Farouk <phun.for.physics@gmail.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || exit(0);
 
@@ -34,7 +34,9 @@ $string['modulename_help'] = 'This plugin allows the use of videos of Vimeo next
 $string['modulenameplural'] = 'Vimeo Activity';
 $string['moduleadministration'] = 'Vimeo Activity - Administration';
 $string['vimeo:addinstance'] = 'Add instance';
-$string['vimeo'] = 'Vimeo Activity';
+$string['vimeoactivity:addinstance'] = 'add instance';
+$string['vimeoactivity:view'] = 'view';
+$string['vimeoactivity'] = 'Vimeo Activity';
 $string['mod/vimeoactivity'] = 'Vimeo Activity';
 $string['mod_vimeoactivity'] = 'Vimeo Activity';
 $string['label_name'] = 'Name';
